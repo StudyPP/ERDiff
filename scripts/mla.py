@@ -78,7 +78,7 @@ test_trial_dic_tide = np.squeeze(np.vstack([test_trial_dir]))
 
 kern_sd_ms = float(0.01) * 1000 * 3
 kern_sd = int(round(kern_sd_ms / bin_width))
-window = signal.gaussian(kern_sd, kern_sd, sym=True)
+window = signal.windows.gaussian(kern_sd, kern_sd, sym=True)
 window /= np.sum(window)
 filt = lambda x: np.convolve(x, window, 'same')
 
